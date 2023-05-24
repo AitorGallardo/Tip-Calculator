@@ -117,6 +117,10 @@ label {
   font-family: var(--font-family);
 }
 
+.app__tip-option.selected{
+  background-color: red;
+}
+
 .app__result-value {
   display: flex;
   justify-content: space-between;
