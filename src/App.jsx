@@ -18,7 +18,7 @@ function App() {
       setTipPerPerson(tipPerson);
       setTotalPerPerson(totalPerson);
     }
-  }, [bill, tip, numberOfPeople]);
+  }, [bill, tip, numberOfPeople,]);
 
   const handleInput = (e) => {
     const value = e.currentTarget.value;
@@ -47,6 +47,13 @@ function App() {
     setTip(tipValue);
   };
 
+  const handleCustomTip = (e) => {
+    const value = e.target.value;
+    const formatedTipValue = formatMaxNumberLength(value,3)
+    setTip(formatedTipValue);
+   
+  };
+
   const calcTip = ({ bill, tip, numberOfPeople }) => {
     bill = Number(bill);
     numberOfPeople = Number(numberOfPeople);
@@ -61,6 +68,16 @@ function App() {
 
     return { tipPerson, totalPerson };
   };
+
+  const reset = () =>{
+    setBill('')
+    setTip('')
+    setNumberOfPeople('')
+    setValidBill(true)
+    setValidNumberOfPeople(true)
+    setTipPerPerson(0)
+    setTotalPerPerson(0)
+  }
 
   return (
     <>
@@ -136,6 +153,8 @@ function App() {
                   className='app__tip-custom'
                   type='text'
                   placeholder='Custom'
+                  value={tip}
+                  onChange={handleCustomTip}
                 />
               </div>
             </div>
@@ -178,7 +197,8 @@ function App() {
               </div>
             </div>
 
-            <button className='app__result-reset'>RESET</button>
+            <button className='app__result-reset' onClick={reset}>RESET</button>
+           
           </div>
         </div>
       </div>
