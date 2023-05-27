@@ -6,6 +6,7 @@ import { formatMaxNumberLength } from './helpers/formatMaxNumberLength';
 function App() {
   const [bill, setBill] = useState('');
   const [tip, setTip] = useState('');
+  const [customTip, setCustomTip] = useState('');
   const [numberOfPeople, setNumberOfPeople] = useState('');
   const [validBill, setValidBill] = useState(true);
   const [validNumberOfPeople, setValidNumberOfPeople] = useState(true);
@@ -13,12 +14,13 @@ function App() {
   const [totalPerPerson, setTotalPerPerson] = useState(0);
 
   useEffect(() => {
-    if (bill && tip && numberOfPeople) {
-      const { tipPerson, totalPerson } = calcTip({ bill, tip, numberOfPeople });
+    const tipVal = tip ? tip : customTip;
+    if (bill && tipVal && numberOfPeople) {
+      const { tipPerson, totalPerson } = calcTip({ bill, tip:tipVal, numberOfPeople });
       setTipPerPerson(tipPerson);
       setTotalPerPerson(totalPerson);
     }
-  }, [bill, tip, numberOfPeople,]);
+  }, [bill, tip,customTip, numberOfPeople,]);
 
   const handleInput = (e) => {
     const value = e.currentTarget.value;
@@ -45,12 +47,14 @@ function App() {
   const handleSelectTip = (e) => {
     const tipValue = e.target.id;
     setTip(tipValue);
+    setCustomTip('');
   };
 
   const handleCustomTip = (e) => {
     const value = e.target.value;
     const formatedTipValue = formatMaxNumberLength(value,3)
-    setTip(formatedTipValue);
+    setCustomTip(formatedTipValue);
+    setTip('');
    
   };
 
@@ -72,6 +76,7 @@ function App() {
   const reset = () =>{
     setBill('')
     setTip('')
+    setCustomTip('')
     setNumberOfPeople('')
     setValidBill(true)
     setValidNumberOfPeople(true)
@@ -153,7 +158,7 @@ function App() {
                   className='app__tip-custom'
                   type='text'
                   placeholder='Custom'
-                  value={tip}
+                  value={customTip}
                   onChange={handleCustomTip}
                 />
               </div>
