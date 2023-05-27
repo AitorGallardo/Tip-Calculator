@@ -1,0 +1,2 @@
+- Hacer responsive 
+- Cuidar estilos, se hace mas greande con el result

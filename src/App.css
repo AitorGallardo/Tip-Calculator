@@ -126,12 +126,12 @@ label {
 
 .app__result-value {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 .app_result-value-text {
-  display: block;
+  flex: 1;
 }
+
 .app_result-value-text-top {
   font-size: 16px;
   color: var(--white);
@@ -144,6 +144,9 @@ label {
 .app_result-value-value {
   font-size: 38px;
   color: var(--strong-cyan);
+  width: 20px;
+  flex: 1;
+  text-align: end;
 }
 
 .app__result-reset{
