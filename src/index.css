@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
 :root {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   --font-family: 'Space Mono', mono;
   --strong-cyan: hsl(172, 67%, 45%);
   --very-dark-cyan: hsl(183, 100%, 15%);
@@ -14,6 +11,12 @@
   font-family: var(--font-family);
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 input {
   cursor: pointer;
   border: 2px solid transparent;
@@ -21,22 +24,28 @@ input {
   font-family: var(--font-family);
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input:focus{
+input:focus {
   border: 2px solid var(--strong-cyan);
 }
-input:hover{
+input:hover {
   border: 2px solid var(--strong-cyan);
 }
 /* input:invalid{
   border: 2px solid rgb(244 136 136);
 } */
 
-p{
+p {
   margin: 0;
 }
+
+/* @media (width <= 750px) {
+  input{
+    font-size: 32px;
+  }
+} */
