@@ -44,14 +44,15 @@ p {
   margin: 0;
 }
 
-@media (width <= 375px) {
+@media (width <= 400px) {
   input {
-    max-width: 50%;
+    /* max-width: 50%; */
+    font-size: 18px;
   }
 }
 
 @media (width <= 750px) {
   input {
-    font-size: 32px;
+    /* font-size: 32px; */
   }
 }

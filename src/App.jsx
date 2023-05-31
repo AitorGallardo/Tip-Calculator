@@ -100,7 +100,7 @@ function App() {
               <div className='input-icon'>
                 <span className='icon dollar'></span>
                 <input
-                  className={!validBill ? 'invalid-input' : ''}
+                  className={!validBill ? 'invalid-input' : 'valid-input'}
                   name='bill'
                   id='bill'
                   type='text'
