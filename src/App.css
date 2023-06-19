@@ -87,6 +87,7 @@ label {
   padding: 1rem 1rem 1rem 3rem;
   text-align: end;
   width: -webkit-fill-available;
+  width: -moz-available;  
 }
 .input-icon .icon {
   position: absolute;
