@@ -3,6 +3,9 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { formatMaxNumberLengthNoDots,formatMaxNumberLength } from './helpers/formatMaxNumberLength';
 
+const value = 0;
+const initialResultValue = value.toFixed(2);
+
 function App() {
   const [bill, setBill] = useState('');
   const [tip, setTip] = useState('');
@@ -10,8 +13,8 @@ function App() {
   const [numberOfPeople, setNumberOfPeople] = useState('');
   const [validBill, setValidBill] = useState(true);
   const [validNumberOfPeople, setValidNumberOfPeople] = useState(true);
-  const [tipPerPerson, setTipPerPerson] = useState(0);
-  const [totalPerPerson, setTotalPerPerson] = useState(0);
+  const [tipPerPerson, setTipPerPerson] = useState(initialResultValue);
+  const [totalPerPerson, setTotalPerPerson] = useState(initialResultValue);
 
   useEffect(() => {
     const tipVal = tip ? tip : customTip;
@@ -191,14 +194,14 @@ function App() {
                   <p className='app_result-value-text-top'>Tip Amount</p>
                   <p className='app_result-value-text-sub'>/person</p>
                 </div>
-                <p className='app_result-value-value'>{tipPerPerson}</p>
+                <p className='app_result-value-value'>${tipPerPerson}</p>
               </div>
               <div className='app__result-value total'>
                 <div className='app_result-value-text'>
                   <p className='app_result-value-text-top'>Total</p>
                   <p className='app_result-value-text-sub'>/person</p>
                 </div>
-                <p className='app_result-value-value'>{totalPerPerson}</p>
+                <p className='app_result-value-value'>${totalPerPerson}</p>
               </div>
             </div>
 
