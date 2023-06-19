@@ -267,3 +267,13 @@ label {
     width: auto;
   }
 }
+@media (1200px <= width < 1300px) {
+  .app__container {
+    width: 75%;
+  }
+}
+@media (1300px <= width <= 1800px) {
+  .app__container {
+    width: 64%;
+  }
+}
