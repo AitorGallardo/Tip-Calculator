@@ -1,7 +1,7 @@
 import logo from './assets/logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
-import { formatMaxNumberLength } from './helpers/formatMaxNumberLength';
+import { formatMaxNumberLengthNoDots,formatMaxNumberLength } from './helpers/formatMaxNumberLength';
 
 function App() {
   const [bill, setBill] = useState('');
@@ -27,7 +27,7 @@ function App() {
     const name = e.currentTarget.name;
 
     if (name === 'bill') {
-      const formatedValue = formatMaxNumberLength(value,5)
+      const formatedValue = formatMaxNumberLength(value,10)
       setValidBill(true);
       setBill(formatedValue);
       if (formatedValue <= 0) {
@@ -35,7 +35,7 @@ function App() {
       }
     }
     if (name === 'people') {
-      const formatedValue = formatMaxNumberLength(value,2)
+      const formatedValue = formatMaxNumberLengthNoDots(value,2)
       setValidNumberOfPeople(true);
       setNumberOfPeople(formatedValue);
       if (formatedValue <= 0) {
@@ -52,7 +52,7 @@ function App() {
 
   const handleCustomTip = (e) => {
     const value = e.target.value;
-    const formatedTipValue = formatMaxNumberLength(value,3)
+    const formatedTipValue = formatMaxNumberLengthNoDots(value,3)
     setCustomTip(formatedTipValue);
     setTip('');
    
@@ -67,8 +67,8 @@ function App() {
 
     const n1 = totalTip / numberOfPeople;
     const n2 = (bill + totalTip) / numberOfPeople;
-    const tipPerson = Math.round(n1 * 100) / 100;
-    const totalPerson = Math.round(n2 * 100) / 100;
+    const tipPerson = Math.floor(n1 * 100) / 100;
+    const totalPerson = Math.floor(n2 * 100) / 100;
 
     return { tipPerson, totalPerson };
   };
