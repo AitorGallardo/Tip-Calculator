@@ -2,6 +2,8 @@
 
 My solution for the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) using *React*.
 
+- [Live Site](https://tip-calculator-gmaitor.vercel.app/)
+
 ## Table of contents
 
 - [Overview](#overview)
